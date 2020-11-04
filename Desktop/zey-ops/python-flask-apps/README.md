@@ -55,14 +55,19 @@ Followings are some of features of Flask Framework;
 - Connect to your instance with SSH.
 
 - Update the installed packages and package cache on your instance.
+    sudo yum update -y 
 
 - Install `Python 3` packages.
+    sudo yum install python3 -y
 
 - Check the python3 version
+    python3 --version
 
 - Install `Python 3 Flask` framework.
+    sudo pip3 install flask
 
 - Check the versions of Flask framework packages (flask, click, itsdangerous, jinja2, markupSafe, werkzeug)
+    pip3 list
 
 ## Part 3 - Write a Simple Hello World Web Application on GitHub Repo
 
@@ -71,19 +76,30 @@ Followings are some of features of Flask Framework;
 - Create python file named `hello-world-app.py`
 
 - Import Flask module.
+    python 
+    from flask import Flask
 
 - Create an object named `app` from imported Flask module.
+    app = Flask(__name__)
 
 - Create a function `hello` which returns a string `Hello World`.
 
 - Assign a URL route the `hello` function with decorator `@app.route('/')`.
+     @app.route('/')
+     def hello():
+        return "Hello World"
 
 - Enable the web application to be run in main, so that it can be reached from anywhere from port 80.
+    if __name__ == "__main__"
+        app.run(host='0.0.0.0', port=80)
 
 - Save the complete code as `hello-world-app.py` file under `hands-on/flask-01` folder.
 
 - Add and commit all changes on local repo
-
+    git add . 
+    git commit -m "updated files"
+    git push
+    
 - Push `hello-world-app.py` to remote repo `python-workshop` on GitHub.
 
 ## Part 4 - Run the Hello World App on EC2 Instance
