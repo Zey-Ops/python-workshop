@@ -1,0 +1,14 @@
+AWSTemplateFormatVersion: 2010-09-09
+Description: Simple template
+Resources:
+  s3Bucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      AccessControl: PublicRead
+      BucketName: zey
+      WebsiteConfiguration:
+        IndexDocument: index.html
+Outputs:
+  WebsiteURL:
+    Value: !GetAtt [s3Bucket, WebsiteURL]
+    Description: URL for website
